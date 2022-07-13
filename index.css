@@ -1,0 +1,17 @@
+body {
+    font-family: casino;
+    font-weight: 100;
+}
+
+h1 {
+    color: goldenrod;
+}
+
+#message-el {}
+
+@font-face {
+    font-family: 'casino';
+    src: url(fonts/casino.3d-italic.ttf);
+    font-style: normal;
+    font-weight: 100;
+}

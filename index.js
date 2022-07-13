@@ -4,6 +4,7 @@ let sum = firstCard + secondCard
 let blackJack = false
 let message = ""
 let playing = true
+
 if (sum <= 20) {
     message = "Do you want to draw a new card?"
 } else if (sum === 21) {
