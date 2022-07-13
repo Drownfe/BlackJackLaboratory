@@ -1,17 +1,34 @@
 body {
     font-family: casino;
     font-weight: 100;
+    background-image: url(images/poker-table-background-green-color_47243-1068.jpg);
+    background-size: cover;
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
 }
 
 h1 {
-    color: goldenrod;
+    color: gold;
 }
 
-#message-el {}
+#message1 {
+    color: #ed2939;
+}
 
 @font-face {
     font-family: 'casino';
     src: url(fonts/casino.3d-italic.ttf);
     font-style: normal;
     font-weight: 100;
+}
+
+button {
+    color: black;
+    width: 100px;
+    background-color: #016f30;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border-radius: 10px;
 }
