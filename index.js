@@ -5,6 +5,7 @@ let player = {
         console.log("Good Mythical Morning!!!")
     }
 }
+
 let cards = []
 let score = 0
 let isBlackJack = false
