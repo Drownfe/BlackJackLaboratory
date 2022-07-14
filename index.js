@@ -1,15 +1,29 @@
-let firstCard = 10
-let secondCard = 4
-let cards = [firstCard, secondCard]
-let sum = firstCard + secondCard
-let blackJack = false
+let cards = []
+let score = 0
+let isBlackJack = false
 let message = ""
-let playing = true
+let playing = false
 let message1 = document.getElementById("message1")
 let scoreField = document.getElementById("scoreId")
 let cardsField = document.getElementById("cardsId")
 
+function randomCard() {
+    let randomCardNumber = Math.floor(Math.random() * 13) + 1
+    if (randomCardNumber > 10) {
+        return 10
+    } else if (randomCardNumber === 1) {
+        return 11
+    } else {
+        return randomCardNumber
+    }
+}
+
 function gameStart() {
+    playing = true
+    let firstCard = randomCard()
+    let secondCard = randomCard()
+    cards = [firstCard, secondCard]
+    score = firstCard + secondCard
     game()
 }
 
@@ -18,12 +32,12 @@ function game() {
     for (let i = 0; i < cards.length; i++) {
         cardsField.textContent += cards[i] + " "
     }
-    scoreField.textContent = "Score: " + sum
-    if (sum <= 20) {
+    scoreField.textContent = "Score: " + score
+    if (score <= 20) {
         message = "Want a new card?"
-    } else if (sum === 21) {
+    } else if (score === 21) {
         message = "BLACKJACK!!! YOU WIN - Play again soon :D"
-        blackJack = true
+        isBlackJack = true
     } else {
         message = "Sorry, you lost, try again!!!"
         playing = false
@@ -32,10 +46,10 @@ function game() {
 }
 
 function drawCard() {
-    console.log("Drawing a new card!")
-    let cardDrawed = 7
-    sum += cardDrawed;
-    cards.push(cardDrawed)
-    gameStart()
-    console.log(cards)
+    if (playing === true && isBlackJack === false) {
+        let cardDrawed = randomCard()
+        score += cardDrawed;
+        cards.push(cardDrawed)
+        game()
+    }
 }
