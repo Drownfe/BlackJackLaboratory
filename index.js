@@ -1,3 +1,10 @@
+let player = {
+    name: "Juan",
+    prize: 0,
+    hello: function() {
+        console.log("Good Mythical Morning!!!")
+    }
+}
 let cards = []
 let score = 0
 let isBlackJack = false
@@ -6,6 +13,9 @@ let playing = false
 let message1 = document.getElementById("message1")
 let scoreField = document.getElementById("scoreId")
 let cardsField = document.getElementById("cardsId")
+let playerField = document.getElementById("playerElement")
+playerField.textContent = player.name + ": $" + player.prize
+
 
 function randomCard() {
     let randomCardNumber = Math.floor(Math.random() * 13) + 1
