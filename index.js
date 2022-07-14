@@ -1,26 +1,19 @@
-let player = {
-    name: "Juan",
-    prize: 0,
-    hello: function() {
-        console.log("Good Mythical Morning!!!")
-    }
-}
-let cardsArray = [
-    { card: "A" },
-    { card: 2 },
-    { card: 3 },
-    { card: 4 },
-    { card: 5 },
-    { card: 6 },
-    { card: 7 },
-    { card: 8 },
-    { card: 9 },
-    { card: 10 },
-    { card: "J" },
-    { card: "Q" },
-    { card: "K" }
-]
-let cards = []
+const cards = [
+    { card: "A", prize: 500, score: 1 },
+    { card: 2, prize: 100, score: 2 },
+    { card: 3, prize: 100, score: 3 },
+    { card: 4, prize: 100, score: 4 },
+    { card: 5, prize: 100, score: 5 },
+    { card: 6, prize: 100, score: 6 },
+    { card: 7, prize: 100, score: 7 },
+    { card: 8, prize: 100, score: 8 },
+    { card: 9, prize: 100, score: 9 },
+    { card: 10, prize: 100, score: 10 },
+    { card: "J", prize: 500, score: 10 },
+    { card: "Q", prize: 500, score: 10 },
+    { card: "K", prize: 500, score: 10 },
+];
+const cardsNew = [];
 let score = 0
 let isBlackJack = false
 let message = ""
