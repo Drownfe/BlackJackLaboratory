@@ -2,21 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Javascript Laboratory</title>
 </head>
 
 <body>
     <h1>Sofka Blackjack Game</h1>
     <p id="message1">Are you ready to play with us?</p>
-    <p id="cardsId">Cards: </p>
-    <p id="scoreId">Score: </p>
-    <button onclick="gameStart()">New Game</button>
-    <button onclick="drawCard()">Draw Card</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Cards: </th>
+                <th scope="col">Score: </th>
+                <th scope="col">Prize: </th>
+            </tr>
+        </thead>
+        <tbody id="cardsList"></tbody>
+    </table>
+
+    <a href="javascript:location.reload()"><button>New Game</button></a>
+    <button id="drawButton">Draw Card</button>
+    <a href="index.html"><button>Back</button></a>
     <script src="index.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
