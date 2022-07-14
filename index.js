@@ -17,3 +17,9 @@ const cardsNew = [];
 const tbody = document.getElementById("cardsList");
 const drawButton = document.getElementById("drawButton");
 drawButton.addEventListener("click", renderCards);
+const randArray = () => {
+    const rand = Math.floor(Math.random() * cards.length);
+    const rValue = cards[rand];
+    cardsNew.push(rValue);
+    return rValue;
+};
