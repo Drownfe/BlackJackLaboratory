@@ -21,7 +21,7 @@ const person = document.getElementById("name");
 drawButton.addEventListener("click", renderCards);
 newGamebutton.addEventListener("click", newGame);
 function newGame() {
-    window.onload = cargar;
+    window.onload = loading;
     swal
       .fire({
         title: "Hello!!! Please type your name :D",
