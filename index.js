@@ -20,7 +20,6 @@ const newGamebutton = document.getElementById("newGamebutton");
 const person = document.getElementById("name");
 drawButton.addEventListener("click", renderCards);
 newGamebutton.addEventListener("click", newGame);
-
 function newGame() {
     window.onload = cargar;
     swal
@@ -49,54 +48,67 @@ function newGame() {
         }
       }); 
   }
-const randArray = () => {
+  const randArray = () => {
     const rand = Math.floor(Math.random() * cards.length);
     const rValue = cards[rand];
     cardsNew.push(rValue);
     return rValue;
-};
+  };
 
-function renderCards() {
+  const loading = () => {
+    for (let i = 0; i < 2; i++) {
+      renderCards();
+    }
+    newGame()
+  };
+  window.onload = loading;
+  function renderCards() {
     let scoreTotal = 0;
     let prizeTotal = 0;
     tbody.innerHTML = "";
     randArray();
     cardsNew.map((cardNew) => {
-        const tr = document.createElement("tr");
-        tr.classList.add("cardNew");
-        scoreTotal = scoreTotal + cardNew.score;
-        prizeTotal = prizeTotal + cardNew.prize;
-        if (scoreTotal == 21) {
-            drawButton.style.visibility = "hidden";
-            const total = prizeTotal + 1000;
-            swal.fire({
-                icon: "success",
-                title: "You win!!! $" + total,
-                text: "Here is extra $1000 for having a Blackjack!!!",
-            });
-        } else if (scoreTotal < 21) {
-            swal.fire({
-                icon: "info",
-                title: "Draw another!!!, your current prize is: $" + prizeTotal,
-                timer: 5000,
-            });
-        } else {
-            drawButton.style.visibility = "hidden";
-            swal.fire({
-                icon: "error",
-                title: "We are sorry :( - you lost your prize for $" + prizeTotal,
-                timer: 5000,
-            });
-        }
-        const Content = `
-     <tr>
-         <th>${cardNew.card}</th>
-         <th>${scoreTotal}</th>
-         <th>${prizeTotal}</th>
-     </tr>      
-          `;
-        tr.innerHTML = Content;
-        tbody.append(tr);
-        console.log(cardNew);
+      const tr = document.createElement("tr");
+      tr.classList.add("cardNew");
+      scoreTotal = scoreTotal + cardNew.score;
+      prizeTotal = prizeTotal + cardNew.prize;
+      if (scoreTotal == 21) {
+        drawButton.style.visibility = "hidden";
+        const total = prizeTotal + 1000;
+        swal.fire({
+          icon: "success",
+          title: "You win: $" + total,
+          text: "For scoring a Blackjack, you will have $1000 extra!!!",
+          timer: 5000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+      } else if (scoreTotal < 21) {
+        swal.fire({
+          icon: "info",
+          title: "You can keep Drawing!!!, total prize: $" + prizeTotal,
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+      } else {
+        drawButton.style.visibility = "hidden";
+        swal.fire({
+          icon: "error",
+          title: "We are sorry, you just lost your price for $" + prizeTotal,
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+      }
+      const Content = `
+       <tr>
+           <th>${cardNew.card}</th>
+           <th>${scoreTotal}</th>
+           <th>${prizeTotal}</th>
+       </tr>      
+            `;
+      tr.innerHTML = Content;
+      tbody.append(tr);
     });
-}
+  }
