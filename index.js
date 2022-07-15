@@ -21,6 +21,34 @@ const person = document.getElementById("name");
 drawButton.addEventListener("click", renderCards);
 newGamebutton.addEventListener("click", newGame);
 
+function newGame() {
+    window.onload = cargar;
+    swal
+      .fire({
+        title: "Hello!!! Please type your name :D",
+        input: "text",
+        confirmButtonText: "OK",
+      })
+      .then(async (result) => {
+        if (result.value != "") {
+          await Swal.fire({
+            title: `Hi ${result.value}`,
+            timer: 2000,
+            timerProgressBar: true,
+            showConfirmButton: false,
+          });
+          person.innerHTML = `Hi ${result.value}`;
+        } else if (result.value == "") {
+          Swal.fire({
+            icon: "error",
+            title: "Please type your name",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          });
+        }
+      }); 
+  }
 const randArray = () => {
     const rand = Math.floor(Math.random() * cards.length);
     const rValue = cards[rand];
